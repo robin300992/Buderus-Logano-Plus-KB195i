@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Heizung">
+<title>Heizung · Buderus Logano Plus KB195i</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f3f4f7;
+    --karte: #ffffff;
+    --rand: #e3e5ea;
+    --text: #0b1220;
+    --text-2: #4b5363;
+    --text-3: #7a8191;
+    --hero: #0b1f3a;
+    --hero-2: #16325a;
+    --gelb: #ffc629;
+    --gitter: #e9ebef;
+    --s-heizung: #2a78d6;
+    --s-ww: #eb6834;
+    --s-aussen: #1baf7a;
+    --s-gesamt: #0b1220;
+    --s-vorjahr: #0b1220;
+    --s-jahr: #16325a;
+    --s-alt: #a7adb9;
+    --gut: #0ca30c;
+    --warn: #ec835a;
+    --kritisch: #d03b3b;
+    --gelb-text: #b07800;
+    --seq-0: #eef4fd; --seq-1: #cde2fb; --seq-2: #9ec5f4; --seq-3: #6da7ec;
+    --seq-4: #3987e5; --seq-5: #256abf; --seq-6: #184f95; --seq-7: #0d366b;
+    --s-ruecklauf: #6250d6;
+    --s-heizung-vj: #a9c8ef; --s-ww-vj: #f5bda3;
+    --seq-ink-0: #0b1220; --seq-ink-1: #0b1220; --seq-ink-2: #0b1220; --seq-ink-3: #0b1220;
+    --seq-ink-4: #ffffff; --seq-ink-5: #ffffff; --seq-ink-6: #ffffff; --seq-ink-7: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #111316; --karte: #1a1c20; --rand: #2b2e34; --text: #f0efec; --text-2: #c3c2b7;
+      --text-3: #8f9099; --hero: #0e2747; --hero-2: #1b3b66; --gitter: #2a2d33;
+      --s-heizung: #3987e5; --s-ww: #d95926; --s-aussen: #199e70; --s-gesamt: #f0efec;
+      --s-vorjahr: #f0efec; --s-jahr: #86b6ef; --s-alt: #5d626c;
+      --seq-0: #17202c; --seq-1: #104281; --seq-2: #184f95; --seq-3: #1c5cab;
+      --seq-4: #256abf; --seq-5: #3987e5; --seq-6: #6da7ec; --seq-7: #9ec5f4;
+      --s-ruecklauf: #9085e9; --gelb-text: #ffc629;
+      --s-heizung-vj: #2b4f7d; --s-ww-vj: #74402a;
+      --seq-ink-0: #f0efec; --seq-ink-1: #f0efec; --seq-ink-2: #f0efec; --seq-ink-3: #f0efec;
+      --seq-ink-4: #f0efec; --seq-ink-5: #0b1220; --seq-ink-6: #0b1220; --seq-ink-7: #0b1220;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #111316; --karte: #1a1c20; --rand: #2b2e34; --text: #f0efec; --text-2: #c3c2b7;
+    --text-3: #8f9099; --hero: #0e2747; --hero-2: #1b3b66; --gitter: #2a2d33;
+    --s-heizung: #3987e5; --s-ww: #d95926; --s-aussen: #199e70; --s-gesamt: #f0efec;
+    --s-vorjahr: #f0efec; --s-jahr: #86b6ef; --s-alt: #5d626c;
+    --seq-0: #17202c; --seq-1: #104281; --seq-2: #184f95; --seq-3: #1c5cab;
+    --seq-4: #256abf; --seq-5: #3987e5; --seq-6: #6da7ec; --seq-7: #9ec5f4;
+    --s-ruecklauf: #9085e9; --gelb-text: #ffc629;
+    --s-heizung-vj: #2b4f7d; --s-ww-vj: #74402a;
+    --seq-ink-0: #f0efec; --seq-ink-1: #f0efec; --seq-ink-2: #f0efec; --seq-ink-3: #f0efec;
+    --seq-ink-4: #f0efec; --seq-ink-5: #0b1220; --seq-ink-6: #0b1220; --seq-ink-7: #0b1220;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    -webkit-text-size-adjust: 100%; }
+  main { max-width: 760px; margin: 0 auto; padding: 16px 16px 40px; }
+  html.app main { padding-top: 22px; }
+  h1 { font-size: 22px; margin: 4px 0 2px; }
+  h2 { font-size: 16px; margin: 0 0 10px; }
+  .klein { font-size: 13px; color: var(--text-2); }
+  .leise { color: var(--text-3); }
+  .zahl { font-variant-numeric: tabular-nums; }
+  .karte { background: var(--karte); border: 1px solid var(--rand); border-radius: 16px;
+    padding: 16px; margin-top: 14px; }
+  .kopf { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
+  button { font: inherit; }
+  .knopf { background: var(--hero); color: #fff; border: 0; border-radius: 10px;
+    padding: 11px 16px; font-weight: 600; cursor: pointer; }
+  .link { background: none; border: 0; color: var(--text-3); text-decoration: underline;
+    cursor: pointer; padding: 0; font-size: 13px; }
+
+  /* Anmeldung */
+  #anmeldung { max-width: 380px; margin: 12vh auto 0; }
+  #anmeldung input[type=password] { width: 100%; font: inherit; padding: 12px; margin: 12px 0 10px;
+    border-radius: 10px; border: 1px solid var(--rand); background: var(--karte); color: var(--text); }
+  #anmeldung label { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
+  #fehler { color: var(--kritisch); min-height: 1.4em; margin-top: 8px; }
+
+  /* Hero */
+  .hero { background: linear-gradient(160deg, var(--hero), var(--hero-2)); color: #fff;
+    border: 0; padding: 18px; }
+  .hero .etikett { color: #c9d3e3; font-size: 13px; }
+  .hero .wert { color: var(--gelb); font-size: 44px; font-weight: 700; line-height: 1.05;
+    margin: 4px 0 2px; letter-spacing: -0.5px; }
+  .hero .wert small { font-size: 20px; font-weight: 600; }
+  .hero .wert.gut { color: var(--gut); }
+  .hero .wert.schlecht { color: var(--kritisch); }
+  .hero .unter { color: #e4e9f1; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .chip { background: rgba(255, 255, 255, .1); border-radius: 10px; padding: 7px 10px; min-width: 84px; }
+  .chip b { display: block; font-size: 17px; color: #fff; }
+  .chip span { font-size: 12px; color: #c9d3e3; }
+
+  /* Status */
+  .status { display: flex; gap: 12px; align-items: flex-start; border-width: 0 0 0 6px;
+    border-style: solid; }
+  .status .icon { width: 28px; height: 28px; border-radius: 50%; color: #fff; display: grid;
+    place-items: center; font-weight: 700; flex: none; }
+  .status.gut { border-color: var(--gut); } .status.gut .icon { background: var(--gut); }
+  .status.warn { border-color: var(--warn); } .status.warn .icon { background: var(--warn); }
+  .status.kritisch { border-color: var(--kritisch); } .status.kritisch .icon { background: var(--kritisch); }
+  .status b { display: block; }
+
+  /* Kacheln */
+  .kacheln { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+  .kacheln .karte { margin: 0; }
+  .kachel .gross { font-size: 26px; font-weight: 700; margin: 2px 0; }
+  .gross.gut { color: var(--gut); } .gross.mittel { color: var(--gelb-text); } .gross.schlecht { color: var(--kritisch); }
+  .balken { height: 10px; border-radius: 5px; background: var(--gitter); position: relative;
+    margin: 10px 0 6px; overflow: visible; }
+  .balken i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 5px; background: var(--s-heizung); }
+  .balken em { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--text); }
+
+  /* Tabelle */
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 7px 4px; text-align: right; white-space: nowrap; font-size: 14px; border-bottom: 1px solid var(--gitter); font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; white-space: normal; }
+  .tabelle { overflow-x: auto; }
+  th { font-size: 12px; color: var(--text-3); font-weight: 600; }
+  .plus { color: var(--kritisch); } .minus { color: var(--gut); }
+
+  /* Diagramme */
+  .legende { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+  .legende span::before { content: ""; display: inline-block; width: 10px; height: 10px;
+    border-radius: 3px; background: var(--f); margin-right: 6px; vertical-align: -1px; }
+  .legende span.linie::before { height: 2px; vertical-align: 3px; border-radius: 1px; }
+  .diagramm { width: 100%; position: relative; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  svg text { fill: var(--text-3); font-size: 11px; font-variant-numeric: tabular-nums; }
+  #tip { position: fixed; pointer-events: none; background: var(--karte); color: var(--text);
+    border: 1px solid var(--rand); border-radius: 10px; padding: 8px 10px; font-size: 13px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.15); display: none; z-index: 10; max-width: 240px; }
+  #tip b { display: block; margin-bottom: 2px; }
+  #ziehen { position: fixed; top: calc(env(safe-area-inset-top) + 8px); left: 50%; transform: translateX(-50%);
+    background: var(--karte); color: var(--text-2); border: 1px solid var(--rand); border-radius: 20px;
+    padding: 6px 14px; font-size: 13px; display: none; pointer-events: none; z-index: 20; }
+  #tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+
+  .heat { display: grid; gap: 3px; font-size: 11px; }
+  .heat div { border-radius: 4px; padding: 7px 0; font-size: 10px; text-align: center; font-variant-numeric: tabular-nums; }
+  .heat .k { color: var(--text-3); padding: 4px 0; }
+  .skala { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 12px; color: var(--text-3); }
+  .skala i { flex: 1; height: 8px; border-radius: 4px;
+    background: linear-gradient(90deg, var(--seq-0), var(--seq-2), var(--seq-4), var(--seq-6), var(--seq-7)); }
+
+  .liste { margin: 0; padding: 0; list-style: none; }
+  .liste li { padding: 8px 0; border-bottom: 1px solid var(--gitter); }
+  .liste li:last-child { border: 0; }
+  footer { margin-top: 22px; text-align: center; }
+  a { color: var(--s-heizung); }
+
+  @media (max-width: 480px) {
+    .hero .wert { font-size: 38px; }
+    th, td { font-size: 13px; padding: 6px 2px; }
+    td:first-child { max-width: 96px; }
+    .kacheln { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+<main>
+  <section id="anmeldung">
+    <h1>Heizung</h1>
+    <p class="klein">Die Daten sind verschlüsselt. Bitte Passwort eingeben.</p>
+    <form id="form">
+      <input type="password" id="pw" autocomplete="current-password" placeholder="Passwort" required>
+      <label class="klein"><input type="checkbox" id="merken" checked> Auf diesem Gerät merken</label>
+      <button class="knopf" type="submit" id="los">Öffnen</button>
+      <div id="fehler" class="klein"></div>
+    </form>
+  </section>
+  <section id="inhalt" hidden></section>
+</main>
+<div id="tip"></div>
+<div id="ziehen"></div>
+<script>
+"use strict";
+if (navigator.standalone || matchMedia("(display-mode: standalone)").matches) document.documentElement.classList.add("app");
+const MONATE = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+const MK = ["J","F","M","A","M","J","J","A","S","O","N","D"];
+const SPEICHER = "heizung-seite-schluessel";
+const SEITE_VERSION = "4a1b60c03552";   // wird beim Veröffentlichen eingesetzt
+const nf = (n, d = 0) => (n == null || isNaN(n)) ? "–" :
+  new Intl.NumberFormat("de-DE", { minimumFractionDigits: d, maximumFractionDigits: d }).format(n);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const datum = s => s ? new Date(s.length <= 10 ? s + "T12:00" : s) : null;
+const tagText = s => s ? datum(s).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" }) : "–";
+const key = (j, m) => `${j}-${String(m).padStart(2, "0")}`;
+
+// ---------- Entschlüsseln ----------
+async function schluesselAus(pw, salz, runden) {
+  const basis = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+  const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256",
+    salt: new TextEncoder().encode(salz), iterations: runden }, basis, 256);
+  return new Uint8Array(bits);
+}
+async function entschluesseln(roh, paket) {
+  const k = await crypto.subtle.importKey("raw", roh, "AES-GCM", false, ["decrypt"]);
+  const klar = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(paket.iv) }, k, b64(paket.daten));
+  return JSON.parse(new TextDecoder().decode(klar));
+}
+async function paketLaden() {
+  const r = await fetch("daten.json?" + Date.now(), { cache: "no-store" });
+  if (!r.ok) throw new Error("Daten nicht erreichbar");
+  const paket = await r.json();
+  // Gibt es eine neuere Seite? Dann einmal frisch laden (statt der gespeicherten alten Version)
+  if (paket.seite && !SEITE_VERSION.startsWith("__") && paket.seite !== SEITE_VERSION
+      && !location.search.includes(paket.seite)) {
+    location.replace(location.pathname + "?v=" + paket.seite);
+    return null;
+  }
+  return paket;
+}
+function gespeichert() { try { return localStorage.getItem(SPEICHER); } catch { return null; } }
+function speichern(roh) { try { localStorage.setItem(SPEICHER, btoa(String.fromCharCode(...roh))); } catch {} }
+function vergessen() { try { localStorage.removeItem(SPEICHER); } catch {} }
+
+async function start() {
+  const s = gespeichert();
+  if (!s) return;
+  let paket;
+  try { paket = await paketLaden(); } catch (e) { return; }   // offline: alte Ansicht behalten
+  if (!paket) return;                                          // neue Version wird geladen
+  try { zeigen(await entschluesseln(b64(s), paket)); } catch (e) { vergessen(); }
+  geladen = Date.now();
+}
+
+// Neu laden: nach unten ziehen oder Rückkehr in die App (nach mindestens 1 Minute)
+let geladen = 0;
+async function aktualisieren() {
+  if (!gespeichert()) { location.reload(); return; }
+  await start();
+}
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && D && Date.now() - geladen > 60000) aktualisieren();
+});
+let ziehStart = null, ziehWeg = 0;
+const ziehen = document.getElementById("ziehen");
+const oben = () => (document.scrollingElement || document.documentElement).scrollTop <= 5;
+function ziehHinweis(text, sichtbar) {   // nur einblenden, solange es etwas zu zeigen gibt
+  ziehen.textContent = text; ziehen.style.opacity = sichtbar; ziehen.style.display = sichtbar ? "block" : "none";
+}
+document.addEventListener("touchstart", ev => {
+  ziehStart = oben() && D && ev.touches.length === 1 ? ev.touches[0].clientY : null; ziehWeg = 0;
+}, { passive: true });
+document.addEventListener("touchmove", ev => {
+  if (ziehStart == null) return;
+  ziehWeg = ev.touches[0].clientY - ziehStart;
+  if (ziehWeg > 10) ziehHinweis(ziehWeg > 60 ? "Loslassen zum Aktualisieren" : "Zum Aktualisieren ziehen", Math.min(1, ziehWeg / 60));
+}, { passive: true });
+function ziehEnde() {
+  if (ziehStart == null) return;
+  ziehStart = null;
+  if (ziehWeg <= 60) { ziehHinweis("", 0); return; }
+  ziehHinweis("Wird aktualisiert …", 1);
+  aktualisieren().then(() => {
+    const st = D && D.letzter_abruf ? datum(D.letzter_abruf).toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" }) : "";
+    ziehHinweis("Aktualisiert" + (st ? " · Stand " + st : ""), 1);
+  }).catch(() => ziehHinweis("Keine Verbindung", 1))
+    .finally(() => setTimeout(() => ziehHinweis("", 0), 1500));
+}
+document.addEventListener("touchend", ziehEnde);
+document.addEventListener("touchcancel", ziehEnde);
+document.getElementById("form").addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const fehler = document.getElementById("fehler"), los = document.getElementById("los");
+  fehler.textContent = ""; los.disabled = true; los.textContent = "Entschlüssele …";
+  try {
+    const paket = await paketLaden();
+    if (!paket) return;
+    const roh = await schluesselAus(document.getElementById("pw").value, paket.salz, paket.runden);
+    const daten = await entschluesseln(roh, paket).catch(() => { throw new Error("Passwort falsch"); });
+    if (document.getElementById("merken").checked) speichern(roh);
+    zeigen(daten);
+  } catch (e) {
+    fehler.textContent = e.message;
+  } finally { los.disabled = false; los.textContent = "Öffnen"; }
+});
+
+// ---------- Rechnen ----------
+let D;
+const M = k => D.monate[k] || null;
+const liter = e => e && e.total_burner != null ? e.total_burner / D.kwh_pro_liter : null;
+const ges = e => e && e.total_burner != null ? e.total_burner + (e.total_electricity || 0) : null;   // wie MyBuderus: Öl + Strom
+const strom = (e, klasse, stil) => e && e.total_electricity ? `<div class="${klasse} klein zahl" style="opacity:.85;${stil}">davon Strom ${nf(e.total_electricity)} kWh</div>` : "";
+const preisVon = e => (e && e.preis_l) || D.preis_aktuell_l;
+const euro = e => liter(e) != null && preisVon(e) ? liter(e) * preisVon(e) : null;
+function wg(e, b = "total") {
+  if (!e) return null;
+  const ein = (e[b + "_burner"] || 0) + (e[b + "_electricity"] || 0);
+  return ein && e[b + "_outputProduced"] != null ? e[b + "_outputProduced"] / ein * 100 : null;
+}
+const bereinigt = e => e && e.hgt >= 30 && e.ch_burner != null ? e.ch_burner / e.hgt : null;
+function summe(liste) {
+  const s = {};
+  let aus = [];
+  for (const e of liste) for (const [k, v] of Object.entries(e)) {
+    if (k === "aussen") aus.push(v); else if (k !== "preis_l") s[k] = (s[k] || 0) + v;
+  }
+  if (aus.length) s.aussen = aus.reduce((a, b) => a + b, 0) / aus.length;
+  return s;
+}
+function delta(neu, alt, umgekehrt = false) {
+  if (neu == null || !alt) return "";
+  const d = Math.round((neu / alt - 1) * 100);
+  if (d === 0) return '<span class="leise">±0 %</span>';
+  const schlecht = umgekehrt ? d < 0 : d > 0;
+  return `<span class="${schlecht ? "plus" : "minus"}">${d > 0 ? "+" : "−"}${nf(Math.abs(d))} %</span>`;
+}
+
+  
+// ---------- Zeilenumbrüche: Zahl und Einheit nie trennen ----------
+function zusammenhalten(wurzel) {
+  const lauf = document.createTreeWalker(wurzel, NodeFilter.SHOW_TEXT);
+  for (let n = lauf.nextNode(); n; n = lauf.nextNode()) {
+    const neu = n.nodeValue
+      .replace(/(\d) (?=%|°|kWh|Kd|l\b|€|h\b|Starts|Brennerstunden)/g, "$1\u00a0")
+      .replace(/([A-Za-zÄÖÜäöüß.:]) (?=[\d−+±(])/g, "$1\u00a0");
+    if (neu !== n.nodeValue) n.nodeValue = neu;
+  }
+}
+
+  
+// ---------- Tooltip ----------
+const tip = document.getElementById("tip");
+function tipZeigen(ev, html) {
+  tip.innerHTML = html; zusammenhalten(tip); tip.style.display = "block";
+  const x = Math.min(ev.clientX + 14, innerWidth - tip.offsetWidth - 8);
+  const y = ev.clientY - tip.offsetHeight - 12 < 8 ? ev.clientY + 16 : ev.clientY - tip.offsetHeight - 12;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const tipWeg = () => { tip.style.display = "none"; };
+document.addEventListener("scroll", tipWeg, { passive: true });
+
+// ---------- Diagramme (SVG) ----------
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attr = {}, eltern) {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attr)) e.setAttribute(k, v);
+  if (eltern) eltern.appendChild(e);
+  return e;
+}
+function skala(d0, d1, r0, r1) { return v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); }
+function schritte(min, max, n = 4) {
+  const roh = (max - min) / n, p = Math.pow(10, Math.floor(Math.log10(roh || 1)));
+  const s = [1, 2, 2.5, 5, 10].map(f => f * p).find(f => f >= roh) || p;
+  const out = [];
+  for (let v = Math.ceil(min / s) * s; v <= max + 1e-9; v += s) out.push(+v.toFixed(6));
+  return out;
+}
+function rahmen(box, hoehe, ymin, ymax, einheit, dez = 0) {
+  box.innerHTML = "";
+  const B = Math.max(box.clientWidth, 280), L = 40, R = 8, O = 10, U = 24;
+  const svg = el("svg", { viewBox: `0 0 ${B} ${hoehe}`, role: "img" }, box);
+  const y = skala(ymin, ymax, hoehe - U, O);
+  for (const t of schritte(ymin, ymax)) {
+    el("line", { x1: L, x2: B - R, y1: y(t), y2: y(t), stroke: css("--gitter") }, svg);
+    el("text", { x: L - 6, y: y(t) + 4, "text-anchor": "end" }, svg).textContent = nf(t, dez) + (einheit || "");
+  }
+  return { svg, B, L, R, O, U, y, innenB: B - L - R, hoehe };
+}
+
+function balkenVergleich(box, keys, opt) {
+  // je Monat zwei Säulen: links Vorjahr (grau), rechts aktuelles Jahr (gestapelt)
+  const reihen = keys.map(k => { const [j, m] = k.split("-").map(Number);
+    return { k, j, m, e: M(k), v: M(key(j - 1, m)) }; });
+  const vjTeile = r => { const x = opt.vorjahr(r.v);
+    return x == null ? [] : Array.isArray(x) ? x : [{ wert: x, farbe: css("--s-alt") }]; };
+  const summe = t => t.reduce((a, x) => a + x.wert, 0);
+  const summen = reihen.flatMap(r => [summe(opt.teile(r.e)), summe(vjTeile(r))]);
+  const max = Math.max(opt.minMax || 1, ...summen) * 1.08;
+  const f = rahmen(box, opt.hoehe || 220, 0, max, "", opt.achseDez || 0);
+  const slot = f.innenB / keys.length, bw = Math.max(4, Math.min(14, slot * 0.34)), luecke = 2;
+  reihen.forEach((r, i) => {
+    const cx = f.L + slot * i + slot / 2, g = f.y(0);
+    el("text", { x: cx, y: f.hoehe - 8, "text-anchor": "middle" }, f.svg).textContent = MK[r.m - 1];
+    const stapel = (x0, alle) => {
+      let unten = 0;
+      const teile = alle.filter(t => t.wert > 0);
+      teile.forEach((t, ti) => {
+        const y0 = f.y(unten), y1 = f.y(unten + t.wert), oben = ti === teile.length - 1;
+        const h = Math.max(0, y0 - y1 - (ti > 0 ? 2 : 0));
+        el("path", { d: oben ? rundOben(x0, y1, bw, h, 3) : `M${x0},${y0}h${bw}v${-h}h${-bw}Z`, fill: t.farbe }, f.svg);
+        unten += t.wert;
+      });
+    };
+    stapel(cx - luecke / 2 - bw, vjTeile(r));
+    stapel(cx + luecke / 2, opt.teile(r.e));
+    const hit = el("rect", { x: f.L + slot * i, y: f.O, width: slot, height: f.hoehe - f.O - f.U, fill: "transparent" }, f.svg);
+    hit.addEventListener("pointermove", ev => tipZeigen(ev, opt.tip(r)));
+    hit.addEventListener("pointerleave", tipWeg);
+  });
+}
+function rundOben(x, y, w, h, r) {
+  r = Math.min(r, h, w / 2);
+  return `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h}Z`;
+}
+
+function linien(box, punkte, serien, opt) {
+  // punkte: [{label, tip, werte:{name:wert}}], serien: [{name, farbe, titel, einheit}]
+  const alle = punkte.flatMap(p => serien.map(s => p.werte[s.name])).filter(v => v != null);
+  if (!alle.length) { box.innerHTML = '<p class="klein leise">Noch keine Daten.</p>'; return; }
+  let lo = Math.min(...alle), hi = Math.max(...alle), pad = (hi - lo) * 0.12 || 1;
+  lo = opt.min != null ? Math.min(opt.min, lo) : Math.floor(lo - pad); hi = Math.ceil(hi + pad);
+  const f = rahmen(box, opt.hoehe || 200, lo, hi, opt.einheit || "", 0);
+  const x = i => f.L + (punkte.length === 1 ? f.innenB / 2 : i / (punkte.length - 1) * f.innenB);
+  const jede = Math.max(1, Math.ceil(punkte.length / (opt.labels || 8)));
+  if (opt.raster) punkte.forEach((p, i) =>          // senkrechte Hilfslinie je Monat
+    el("line", { x1: x(i), x2: x(i), y1: f.O, y2: f.hoehe - f.U, stroke: css("--gitter") }, f.svg));
+  punkte.forEach((p, i) => { if (p.label && i % jede === 0)
+    el("text", { x: x(i), y: f.hoehe - 8, "text-anchor": "middle" }, f.svg).textContent = p.label; });
+  for (const s of serien) {
+    let d = "", stift = false;
+    punkte.forEach((p, i) => {
+      const v = p.werte[s.name];
+      if (v == null) { if (!opt.verbinden) stift = false; return; }
+      d += (stift ? "L" : "M") + x(i).toFixed(1) + "," + f.y(v).toFixed(1); stift = true;
+    });
+    el("path", { d, fill: "none", stroke: s.farbe, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, f.svg);
+    if (opt.punkte) punkte.forEach((p, i) => { const v = p.werte[s.name];
+      if (v != null) el("circle", { cx: x(i), cy: f.y(v), r: 3.5, fill: s.farbe, stroke: css("--karte"), "stroke-width": 2 }, f.svg); });
+  }
+  const strich = el("line", { y1: f.O, y2: f.hoehe - f.U, stroke: css("--text-3"), "stroke-dasharray": "3 3", visibility: "hidden" }, f.svg);
+  const flaeche = el("rect", { x: f.L, y: f.O, width: f.innenB, height: f.hoehe - f.O - f.U, fill: "transparent" }, f.svg);
+  flaeche.addEventListener("pointermove", ev => {
+    const r = f.svg.getBoundingClientRect(), px = (ev.clientX - r.left) / r.width * f.B;
+    const i = Math.max(0, Math.min(punkte.length - 1, Math.round((px - f.L) / f.innenB * (punkte.length - 1))));
+    strich.setAttribute("x1", x(i)); strich.setAttribute("x2", x(i)); strich.setAttribute("visibility", "visible");
+    const p = punkte[i];
+    tipZeigen(ev, `<b>${p.tip}</b>` + serien.map(s => `<i style="background:${s.farbe}"></i>${s.titel} ${nf(p.werte[s.name], opt.dez || 0)}${s.einheit}`).join("<br>"));
+  });
+  flaeche.addEventListener("pointerleave", () => { strich.setAttribute("visibility", "hidden"); tipWeg(); });
+}
+
+function heatmap(box, jahre) {
+  const alle = jahre.flatMap(j => MK.map((_, i) => M(key(j, i + 1)))).filter(Boolean).map(e => e.total_burner || 0);
+  const max = Math.max(1, ...alle);
+  let h = `<div class="heat" style="grid-template-columns: 38px repeat(12, minmax(0,1fr))"><div class="k"></div>` +
+    MK.map(m => `<div class="k">${m}</div>`).join("");
+  for (const j of jahre) {
+    h += `<div class="k" style="text-align:left">${j}</div>`;
+    for (let m = 1; m <= 12; m++) {
+      const e = M(key(j, m));
+      if (!e || e.total_burner == null) { h += `<div class="leise">·</div>`; continue; }
+      const stufe = Math.min(7, Math.round(e.total_burner / max * 7));
+      h += `<div data-k="${key(j, m)}" style="background:var(--seq-${stufe});color:var(--seq-ink-${stufe})">${nf(liter(e))}${e.unvollstaendig ? "*" : ""}</div>`;
+    }
+  }
+  box.innerHTML = h + `</div><div class="skala"><span>wenig</span><i></i><span>viel (${nf(max / D.kwh_pro_liter)} l)</span></div>`;
+  box.querySelectorAll("[data-k]").forEach(z => {
+    const [j, m] = z.dataset.k.split("-").map(Number), e = M(z.dataset.k);
+    z.addEventListener("pointermove", ev => tipZeigen(ev, `<b>${MONATE[m - 1]} ${j}</b>${nf(e.total_burner)} kWh · ca. ${nf(liter(e))} l` +
+      (wg(e) ? `<br>Wirkungsgrad ${nf(wg(e), 1)} %` : "") + (e.unvollstaendig ? "<br><span class=\"leise\">nur teilweise aufgezeichnet</span>" : "")));
+    z.addEventListener("pointerleave", tipWeg);
+  });
+}
+
+// ---------- Seite ----------
+function zeigen(daten) {
+  D = daten;
+  document.getElementById("anmeldung").hidden = true;
+  const box = document.getElementById("inhalt");
+  box.hidden = false;
+  const jetzt = new Date(), J = jetzt.getFullYear(), Mo = jetzt.getMonth() + 1;
+  const kAkt = key(J, Mo), kVj = key(J - 1, Mo);
+  const vm = new Date(J, Mo - 2, 1), kVm = key(vm.getFullYear(), vm.getMonth() + 1), kVmVj = key(vm.getFullYear() - 1, vm.getMonth() + 1);
+  const w = D.werte || {}, akt = M(kAkt), vj = M(kVj);
+  const abruf = datum(D.letzter_abruf), alterH = abruf ? (jetzt - abruf) / 36e5 : 99;
+
+  // Status
+  let st = { k: "gut", i: "✓", t: "Alles in Ordnung", s: "Keine Störung gemeldet." };
+  const frost = w.aussen != null && w.aussen < 0;
+  if (D.meldungen && D.meldungen.length) st = { k: "kritisch", i: "!", t: "Störung" + (frost ? " bei Frost" : ""), s: D.meldungen.map(esc).join("<br>") };
+  else if (w.notbetrieb && w.notbetrieb !== "off") st = { k: "kritisch", i: "!", t: "Notbetrieb", s: esc(w.notbetrieb) };
+  else if (D.fehlversuche > 0 || alterH > 3) st = { k: frost ? "kritisch" : "warn", i: "!", t: "Keine Verbindung" + (frost ? " – Frost!" : ""),
+    s: `Letzter Kontakt vor ca. ${nf(alterH)} h.` };
+  else if (D.tank && D.tank.reserve_erreicht) st = { k: "warn", i: "!", t: "Heizöl wird knapp", s: `Tank ca. ${nf(D.tank.stand_l)} l – Zeit zu bestellen.` };
+
+  // Jahr bis heute (volle Monate, die es in beiden Jahren gibt)
+  const volle = []; for (let m = 1; m < Mo; m++) if (M(key(J, m)) && M(key(J - 1, m)) && !M(key(J - 1, m)).unvollstaendig) volle.push(m);
+  const jahrS = summe([...Array(Mo).keys()].map(i => M(key(J, i + 1))).filter(Boolean));
+  const vgl = summe(volle.map(m => M(key(J, m)))), vglV = summe(volle.map(m => M(key(J - 1, m))));
+  const jahrEuro = [...Array(Mo).keys()].map(i => euro(M(key(J, i + 1)))).filter(v => v != null).reduce((a, b) => a + b, 0);
+
+  const t = D.tank, tankAnteil = t ? Math.min(100, t.stand_l / D.tank_max_l * 100) : 0;
+    // Farben: Tank ab 1.500 l grün, ab 750 l gelb, darunter rot; Jahr ±5 % zum Vorjahr
+  const tankKlasse = !t ? "" : t.stand_l >= 1500 ? "gut" : t.stand_l >= 750 ? "mittel" : "schlecht";
+  const tankFarbe = { gut: "--gut", mittel: "--gelb-text", schlecht: "--kritisch" }[tankKlasse];
+  let jahrD = null;            // Jahr bis gestern gegen denselben Zeitraum im Vorjahr
+  { const mvj = D.monat_vergleich && D.monat_vergleich.bis.slice(0, 7) === key(J, Mo) ? D.monat_vergleich : null;
+    let ab = 1, a = 0, b = 0;   // ab dem ersten vollständig aufgezeichneten Vorjahresmonat
+    for (let m = 1; m < Mo; m++) { const x = M(key(J - 1, m)); if (!x || x.unvollstaendig) ab = m + 1; }
+    for (let m = ab; m < Mo; m++) { a += ges(M(key(J, m))) || 0; b += ges(M(key(J - 1, m))) || 0; }
+    if (mvj) { a += mvj.kwh; b += mvj.kwh_vj; }
+    if (b) jahrD = (a / b - 1) * 100; }
+  const jahrKlasse = jahrD == null ? "" : jahrD < -5 ? "gut" : jahrD > 5 ? "schlecht" : "mittel";
+  const letzteLieferung = (D.lieferungen || []).slice(-1)[0];
+  const vmE = M(kVm), vmVroh = M(kVmVj), vmV = vmVroh && !vmVroh.unvollstaendig ? vmVroh : null;
+
+
+  // Ampel: laufender Monat bis gestern gegen denselben Zeitraum im Vorjahr (±5 %)
+  const mv = D.monat_vergleich, ampel = { klasse: "", text: "", temp: "" };
+  if (mv && mv.kwh_vj && mv.bis.slice(0, 7) === kAkt) {
+    const d = (mv.kwh / mv.kwh_vj - 1) * 100, r = Math.round(d);
+    ampel.klasse = d < -5 ? "gut" : d > 5 ? "schlecht" : "";
+    const bis = datum(mv.bis).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" });
+    const pz = r === 0 ? "±0 %" : `<span style="color:var(${r < 0 ? "--gut" : "--kritisch"})">${r > 0 ? "+" : "−"}${nf(Math.abs(r))} %</span>`;
+    ampel.text = `Bis ${bis}: ${nf(mv.kwh)} kWh (${pz})<br>Vorjahr: ${mv.geschaetzt ? "ca. " : ""}${nf(mv.kwh_vj)} kWh`;
+    if (mv.aussen != null && mv.aussen_vj != null) {
+      const t = mv.aussen - mv.aussen_vj;
+      ampel.temp = "Außentemperatur: " + (Math.abs(t) < 0.5 ? "ähnlich wie im Vorjahr"
+        : `${nf(Math.abs(t), 1)} °C ${t < 0 ? "kälter" : "wärmer"} als im Vorjahr`);
+    }
+  }
+
+  box.innerHTML = `
+    <div class="kopf"><div><h1>Heizung</h1>
+      <div class="klein leise">Buderus Logano Plus KB195i · Stand ${abruf ? abruf.toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" }) : "–"}</div></div>
+      <button class="link" id="abmelden">Abmelden</button></div>
+
+    <section class="karte hero">
+      <div class="etikett">Verbrauch ${MONATE[Mo - 1]} ${J} bis heute</div>
+      <div class="wert zahl ${ampel.klasse}">${nf(ges(akt))} <small>kWh</small></div>
+      ${strom(akt, "unter", "margin-bottom:4px")}
+      <div class="unter zahl">ca. ${nf(liter(akt))} l Öl${euro(akt) != null ? ` · ca. ${nf(euro(akt))} €` : ""}${wg(akt) ? ` · Wirkungsgrad ${nf(wg(akt), 1)}&nbsp;%` : ""}</div>
+      ${ampel.text ? `<div class="unter klein zahl" style="margin-top:4px">${ampel.text}</div>` : ""}
+      ${ampel.temp ? `<div class="unter klein zahl" style="margin-top:4px">${ampel.temp}</div>` : ""}
+      <div class="unter klein zahl" style="margin-top:4px;opacity:.85">${vj ? `${MONATE[Mo - 1]} ${J - 1} gesamt: ${nf(ges(vj))} kWh · ca. ${nf(liter(vj))} l` : "Kein Vorjahreswert"}</div>
+      <div class="chips">
+        <div class="chip"><b class="zahl">${nf(w.aussen, 1)} °C</b><span>Außen</span></div>
+        <div class="chip"><b class="zahl">${nf(w.vorlauf, 1)} °C</b><span>Vorlauf</span></div>
+        <div class="chip"><b class="zahl">${nf(w.ruecklauf, 1)} °C</b><span>Rücklauf</span></div>
+        <div class="chip"><b class="zahl">${nf(w.ww_ist, 1)} °C</b><span>Warmwasser</span></div>
+        <div class="chip"><b>${w.flamme === "on" ? "an" : "aus"}</b><span>Brenner${w.flamme === "on" && w.modulation != null ? ` · ${nf(w.modulation)} %` : ""}</span></div>
+      </div>
+    </section>
+
+    <section class="karte status ${st.k}"><div class="icon" aria-hidden="true">${st.i}</div>
+      <div><b>${st.t}</b><span class="klein">${st.s}</span></div></section>
+
+    <div class="kacheln">
+      <section class="karte kachel"><div class="klein">Tank (geschätzt)</div>
+        <div class="gross zahl ${tankKlasse}">${t ? nf(t.stand_l) + " l" : "–"}</div>
+        ${t ? `<div class="balken" role="img" aria-label="Füllstand ${nf(tankAnteil)} %"><i style="width:${tankAnteil}%;background:var(${tankFarbe})"></i><em style="left:${t.reserve_l / D.tank_max_l * 100}%"></em></div>
+        <div class="klein">${t.reserve_erreicht ? `Unter ${nf(t.reserve_l)} l – jetzt bestellen!` : t.reserve_datum ? `<b>Nachbestellen bis ca. ${MONATE[datum(t.reserve_datum).getMonth()]} ${datum(t.reserve_datum).getFullYear()}</b><br>Dann sind bei üblichem Verbrauch noch ${nf(t.reserve_l)} l Reserve im Tank (Strich).` : ""}</div>
+        <div class="klein leise">Abgelesen ${nf(t.ablesung_l)} l am ${tagText(t.ablesung_datum)}</div>
+        ${letzteLieferung ? `<div class="klein leise">Geliefert ${nf(letzteLieferung.liter)} l am ${tagText(letzteLieferung.datum)}${letzteLieferung.preis_l ? ` · ${nf(letzteLieferung.preis_l, 2)} €/l` : ""}</div>` : ""}` : '<div class="klein leise">Noch keine Ablesung verknüpft.</div>'}
+      </section>
+      <section class="karte kachel"><div class="klein">${J} bis heute</div>
+        <div class="gross zahl ${jahrKlasse}">${nf(ges(jahrS))} kWh</div>
+        ${strom(jahrS, "", "margin:-6px 0 6px")}
+        <div class="klein zahl">ca. ${nf(liter(jahrS))} l${jahrEuro ? ` · ca. ${nf(jahrEuro)} €` : ""}</div>
+        <div class="klein zahl">Wirkungsgrad ${nf(wg(jahrS), 1)} %</div>
+        ${volle.length ? `<div class="klein leise zahl" style="margin-top:6px">Vergleich ${MONATE[volle[0] - 1]}–${MONATE[volle[volle.length - 1] - 1]}:<br>${nf(ges(vgl))} kWh, Vj. ${nf(ges(vglV))} kWh ${delta(ges(vgl), ges(vglV))}` +
+          (bereinigt(vgl) && bereinigt(vglV) ? `<br>witterungsbereinigt ${delta(bereinigt(vgl), bereinigt(vglV))}` : "") + `</div>` : ""}
+      </section>
+    </div>
+
+    <section class="karte"><h2>${MONATE[vm.getMonth()]} ${vm.getFullYear()} im Vergleich zum Vorjahr</h2>
+      ${vmE ? `<div class="tabelle"><table>
+        <tr><th></th><th>${vm.getFullYear()}</th><th>${vm.getFullYear() - 1}</th><th>Δ</th></tr>
+        <tr><td>Verbrauch</td><td>${nf(vmE.total_burner)} kWh</td><td>${vmV ? nf(vmV.total_burner) + " kWh" : "–"}</td><td>${delta(vmE.total_burner, vmV && vmV.total_burner)}</td></tr>
+        <tr><td>· Heizung</td><td>${nf(vmE.ch_burner)} kWh</td><td>${vmV ? nf(vmV.ch_burner) + " kWh" : "–"}</td><td>${delta(vmE.ch_burner, vmV && vmV.ch_burner)}</td></tr>
+        <tr><td>· Warmwasser</td><td>${nf(vmE.dhw_burner)} kWh</td><td>${vmV ? nf(vmV.dhw_burner) + " kWh" : "–"}</td><td>${delta(vmE.dhw_burner, vmV && vmV.dhw_burner)}</td></tr>
+        <tr><td>Heizöl</td><td>${nf(liter(vmE))} l</td><td>${vmV ? nf(liter(vmV)) + " l" : "–"}</td><td>${delta(liter(vmE), liter(vmV))}</td></tr>
+        <tr><td>Kosten</td><td>${euro(vmE) != null ? nf(euro(vmE)) + " €" : "–"}</td><td>${vmV && vmV.preis_l ? nf(euro(vmV)) + " €" : "–"}</td><td>${vmV && vmV.preis_l ? delta(euro(vmE), euro(vmV)) : ""}</td></tr>
+        <tr><td>Wirkungsgrad</td><td>${nf(wg(vmE), 1)} %</td><td>${vmV ? nf(wg(vmV), 1) + " %" : "–"}</td><td></td></tr>
+        <tr><td>· Heizung</td><td>${nf(wg(vmE, "ch"), 1)} %</td><td>${vmV ? nf(wg(vmV, "ch"), 1) + " %" : "–"}</td><td></td></tr>
+        <tr><td>· Warmwasser</td><td>${nf(wg(vmE, "dhw"), 1)} %</td><td>${vmV ? nf(wg(vmV, "dhw"), 1) + " %" : "–"}</td><td></td></tr>
+        <tr><td>Ø außen</td><td>${nf(vmE.aussen, 1)} °C</td><td>${vmV ? nf(vmV.aussen, 1) + " °C" : "–"}</td><td></td></tr>
+        <tr><td>Heizgradtage</td><td>${nf(vmE.hgt)} Kd</td><td>${vmV && vmV.hgt != null ? nf(vmV.hgt) + " Kd" : "–"}</td><td>${delta(vmE.hgt, vmV && vmV.hgt)}</td></tr>
+        <tr><td>Witterungs&shy;bereinigt</td><td>${bereinigt(vmE) ? nf(bereinigt(vmE), 2) + "&nbsp;kWh/Kd" : "–"}</td><td>${bereinigt(vmV) ? nf(bereinigt(vmV), 2) + "&nbsp;kWh/Kd" : "–"}</td><td>${delta(bereinigt(vmE), bereinigt(vmV))}</td></tr>
+      </table></div>
+      <p class="klein leise" style="margin:8px 0 0">Kd = Heizgradtage (Kelvin·Tage): je kälter der Monat, desto mehr. „Witterungsbereinigt“ ist der Heizungsverbrauch je Heizgradtag – sinkt er, wurde unabhängig vom Wetter sparsamer geheizt.${vmVroh && vmVroh.unvollstaendig ? `<br>${MONATE[vm.getMonth()]} ${vm.getFullYear() - 1} wurde nur teilweise aufgezeichnet und deshalb nicht verglichen.` : ""}</p>`
+      : '<p class="klein leise">Keine Daten für diesen Monat.</p>'}
+    </section>
+
+    <section class="karte"><h2>Verbrauch pro Monat</h2>
+      <div class="legende"><span style="--f:var(--s-heizung)">Heizung</span><span style="--f:var(--s-ww)">Warmwasser</span><span style="--f:var(--s-heizung-vj)">Vorjahr (blass)</span></div>
+      <div class="diagramm" id="d-monate"></div><div class="klein leise">kWh Brennstoff, letzte 12 Monate · je Monat links blass das Vorjahr, rechts kräftig dieses Jahr · Säulenhöhe = Gesamt</div></section>
+
+    <section class="karte"><h2>Wirkungsgrad pro Monat</h2>
+      <div class="legende"><span class="linie" style="--f:var(--s-gesamt)">Gesamt</span><span class="linie" style="--f:var(--s-heizung)">Heizung</span><span class="linie" style="--f:var(--s-ww)">Warmwasser</span></div>
+      <div class="diagramm" id="d-wg"></div><div class="klein leise">letzte 12 Monate</div></section>
+
+    <section class="karte"><h2>Verbrauch nach Jahr und Monat</h2>
+      <div id="d-heat"></div><div class="klein leise" style="margin-top:6px">Zahlen = Heizöl in Litern (1 l ≈ 10 kWh) · je kräftiger das Blau, desto mehr · * nur teilweise aufgezeichnet · bis zu 10 Jahre</div></section>
+
+    <section class="karte"><h2>Witterungsbereinigter Heizungsverbrauch</h2>
+      <div class="legende"><span style="--f:var(--s-alt)">Vorjahresmonat</span><span style="--f:var(--s-heizung)">dieses Jahr</span></div>
+      <div class="diagramm" id="d-bereinigt"></div><div class="klein leise">kWh je Heizgradtag (Wetter herausgerechnet) · niedrigere Säule = sparsamer geheizt · im Sommer keine Säule (kaum Heizbedarf)</div></section>
+
+    <section class="karte"><h2>Temperaturen der letzten 7 Tage</h2>
+      <div class="legende"><span class="linie" style="--f:var(--s-aussen)">Außen</span><span class="linie" style="--f:var(--s-heizung)">Vorlauf</span><span class="linie" style="--f:var(--s-ruecklauf)">Rücklauf</span><span class="linie" style="--f:var(--s-ww)">Warmwasser</span></div>
+      <div class="diagramm" id="d-temp"></div><div class="klein leise" id="t-temp"></div></section>
+
+    <section class="karte"><h2>Wartung und Schornsteinfeger</h2><ul class="liste">
+      ${[["wartung", "Wartung"], ["schornsteinfeger", "Schornsteinfeger"]].map(([a, n]) => {
+        const e = (D.termine || {})[a] || {};
+        const seit = e.brennerstunden != null && w.laufzeit_h != null ? `${nf(w.laufzeit_h - e.brennerstunden)} Brennerstunden, ${nf(w.starts - e.starts)} Starts seitdem` : "";
+        // Fälligkeit als Monat: bis zum 15. derselbe Monat, ab dem 16. der Folgemonat (+ Intervall)
+        const fm = e.datum ? new Date(datum(e.datum).getFullYear(), datum(e.datum).getMonth() + (e.intervall_monate || 12) + (datum(e.datum).getDate() >= 16 ? 1 : 0), 1) : null;
+        const naechst = e.naechster_termin ? `<b>Nächster Termin: ${tagText(e.naechster_termin)}</b>` : fm ? `Nächste fällig: ${MONATE[fm.getMonth()]} ${fm.getFullYear()}` : "";
+        return `<li><b>${n}</b><div class="klein">${e.datum ? "Zuletzt " + tagText(e.datum) : "Noch nicht eingetragen"}${seit ? " · " + seit : ""}</div><div class="klein">${naechst}</div></li>`;
+      }).join("")}</ul></section>
+
+    <section class="karte"><h2>Störungen</h2>
+      ${(D.historie || []).length ? `<ul class="liste">${D.historie.slice().reverse().map(h => `<li><div class="klein leise">${datum(h.zeit).toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" })}</div>${esc(h.meldung)}</li>`).join("")}</ul>`
+        : '<p class="klein leise">Bisher keine Störungen aufgezeichnet.</p>'}
+    </section>
+
+    <footer class="klein leise">Daten: Buderus-Cloud, Open-Meteo, esyoil · erstellt ${datum(D.erstellt).toLocaleString("de-DE", { dateStyle: "short", timeStyle: "short" })} · Version ${SEITE_VERSION.slice(0, 6)}</footer>`;
+
+  document.getElementById("abmelden").onclick = () => { vergessen(); location.reload(); };
+  diagramme();
+}
+
+function diagramme() {
+  if (!D) return;
+  const jetzt = new Date(), J = jetzt.getFullYear(), Mo = jetzt.getMonth() + 1;
+  const letzte12 = [...Array(12).keys()].map(i => { const d = new Date(J, Mo - 12 + i, 1); return key(d.getFullYear(), d.getMonth() + 1); });
+  balkenVergleich(document.getElementById("d-monate"), letzte12, {
+    teile: e => e ? [{ wert: e.ch_burner || 0, farbe: css("--s-heizung") }, { wert: e.dhw_burner || 0, farbe: css("--s-ww") }] : [],
+    vorjahr: v => v && !v.unvollstaendig ? [{ wert: v.ch_burner || 0, farbe: css("--s-heizung-vj") }, { wert: v.dhw_burner || 0, farbe: css("--s-ww-vj") }] : null,
+    tip: r => `<b>${MONATE[r.m - 1]} ${r.j}</b>` +
+      (r.e ? `<i style="background:${css("--s-heizung")}"></i>Heizung ${nf(r.e.ch_burner)} kWh<br>` +
+             `<i style="background:${css("--s-ww")}"></i>Warmwasser ${nf(r.e.dhw_burner)} kWh<br>Gesamt ${nf(r.e.total_burner)} kWh · ca. ${nf(liter(r.e))} l` : "keine Daten") +
+      (r.v ? `<br><br><b>${MONATE[r.m - 1]} ${r.j - 1}</b>` + (r.v.unvollstaendig ? `${nf(r.v.total_burner)} kWh (unvollständig)` :
+             `<i style="background:${css("--s-heizung-vj")}"></i>Heizung ${nf(r.v.ch_burner)} kWh<br>` +
+             `<i style="background:${css("--s-ww-vj")}"></i>Warmwasser ${nf(r.v.dhw_burner)} kWh<br>Gesamt ${nf(r.v.total_burner)} kWh ` +
+             delta(r.e && r.e.total_burner, r.v.total_burner)) : "")
+  });
+
+  const alleK = Object.keys(D.monate).sort();
+  linien(document.getElementById("d-wg"), letzte12.map(k => { const [j, m] = k.split("-").map(Number), e = M(k);
+    return { label: MK[m - 1], tip: `${MONATE[m - 1]} ${j}`,
+      werte: { g: wg(e), ch: wg(e, "ch"), ww: wg(e, "dhw") } }; }),
+    [{ name: "g", farbe: css("--s-gesamt"), titel: "Gesamt", einheit: " %" },
+     { name: "ch", farbe: css("--s-heizung"), titel: "Heizung", einheit: " %" },
+     { name: "ww", farbe: css("--s-ww"), titel: "Warmwasser", einheit: " %" }],
+    { einheit: " %", punkte: true, dez: 1, labels: 12, raster: true });
+
+  const jahre = [...new Set(alleK.map(k => +k.slice(0, 4)))].sort().slice(-10);
+  heatmap(document.getElementById("d-heat"), jahre);
+
+  const heizmonate = letzte12.filter(k => { const [j, m] = k.split("-").map(Number); return bereinigt(M(k)) || bereinigt(M(key(j - 1, m))); });
+  const bBox = document.getElementById("d-bereinigt");
+  if (!heizmonate.length) bBox.innerHTML = '<p class="klein leise">Noch keine Heizmonate mit Wetterdaten.</p>';
+  else balkenVergleich(bBox, letzte12, {
+    achseDez: 1,
+    teile: e => bereinigt(e) ? [{ wert: bereinigt(e), farbe: css("--s-heizung") }] : [],
+    vorjahr: v => v && !v.unvollstaendig ? bereinigt(v) : null,
+    tip: r => `<b>${MONATE[r.m - 1]} ${r.j}</b>` +
+      (bereinigt(r.e) ? `${nf(bereinigt(r.e), 2)} kWh je Heizgradtag<br><span class="leise">${nf(r.e.ch_burner)} kWh bei ${nf(r.e.hgt)} Kd, Ø ${nf(r.e.aussen, 1)} °C</span>` : r.e ? "kaum Heizbedarf, kein Wert" : "keine Daten") +
+      (bereinigt(r.v) && !r.v.unvollstaendig ? `<br><i style="background:${css("--s-alt")}"></i>Vorjahr ${nf(bereinigt(r.v), 2)} ${delta(bereinigt(r.e), bereinigt(r.v))}` : "")
+  });
+
+  const v = D.verlauf || [];
+  linien(document.getElementById("d-temp"), v.map(p => { const d = datum(p.t);
+    return { label: d.getHours() === 0 ? d.toLocaleDateString("de-DE", { weekday: "short" }) : "",
+      tip: d.toLocaleString("de-DE", { weekday: "short", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }),
+      werte: { a: p.aussen, v: p.vorlauf, r: p.ruecklauf, w: p.ww } }; }),
+    [{ name: "a", farbe: css("--s-aussen"), titel: "Außen", einheit: " °C" },
+     { name: "v", farbe: css("--s-heizung"), titel: "Vorlauf", einheit: " °C" },
+     { name: "r", farbe: css("--s-ruecklauf"), titel: "Rücklauf", einheit: " °C" },
+     { name: "w", farbe: css("--s-ww"), titel: "Warmwasser", einheit: " °C" }],
+    { einheit: "°", labels: 1000, hoehe: 220, dez: 1, verbinden: true });
+  const ohne = [["ruecklauf", "Rücklauf"], ["ww", "Warmwasser"], ["vorlauf", "Vorlauf"], ["aussen", "Außen"]]
+    .filter(([n]) => !v.some(p => p[n + "_mittel"]));
+  const erster = v.find(p => p.ww != null || p.ruecklauf != null);
+  const namen = ohne.map(x => x[1]).join(", ").replace(/, ([^,]*)$/, " und $1");
+  let text = !ohne.length ? "Alle Werte als Stundenmittel der Anlage."
+    : ohne.length === 4 ? "Stündliche Messwerte."
+    : `Stundenmittel der Anlage, ${namen} als stündlicher Messwert.`;
+  if (erster && v.length && erster !== v[0] && ohne.length)
+    text += ` Die Aufzeichnung dieser Werte läuft erst seit ${datum(erster.t).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit" })}.`;
+  document.getElementById("t-temp").textContent = text;
+  zusammenhalten(document.getElementById("inhalt"));
+}
+let warte;
+addEventListener("resize", () => { clearTimeout(warte); warte = setTimeout(diagramme, 150); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => D && zeigen(D));
+start();
+</script>
+</body>
+</html>
